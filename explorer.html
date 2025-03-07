@@ -1,0 +1,46 @@
+<!-- explorer.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Steem Block Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Steem Block Explorer</h1>
+    
+    <div class="search-form">
+      <input type="text" id="searchInput" placeholder="Block #, Transaction ID, or Account name">
+      <select id="searchType">
+        <option value="block">Block</option>
+        <option value="transaction">Transaction</option>
+        <option value="account">Account</option>
+      </select>
+      <button id="searchButton">Search</button>
+    </div>
+    
+    <div class="info-panels">
+      <div class="dynamic-info">
+        <h2>Blockchain Info <span id="refreshTimer">(refreshing in 3s)</span></h2>
+        <div class="info-container">
+          <div class="info-section">
+            <h3>Global Properties</h3>
+            <div id="globalProperties" class="json-content"></div>
+          </div>
+          <div class="info-section">
+            <h3>Witness Schedule</h3>
+            <div id="witnessSchedule" class="json-content"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="search-results">
+        <h2>Search Results</h2>
+        <div id="searchResults" class="json-content"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="explorer.js"></script>
+</body>
+</html>

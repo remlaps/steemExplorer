@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Steem Block Explorer",
+    "version": "1.0",
+    "description": "A simple explorer for the Steem blockchain",
+    "action": {
+      "default_title": "Steem Block Explorer"
+    },
+    "permissions": ["activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
