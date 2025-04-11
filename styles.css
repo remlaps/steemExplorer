@@ -1,114 +1,160 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-  }
-  
-  .container {
-    width: 800px;
-    padding: 15px;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #1a5099;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    color: #333;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 1px;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1400px; /* Increased max-width for wider layout */
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  color: #333;
+  margin-top: 0; /* Reset top margin for headings */
+}
+
+.header-content {
+  display: flex;         /* ** Crucial: Makes children (<a> and <h1>) align horizontally ** */
+  align-items: center;     /* Vertically aligns the logo and title */
+  gap: 20px;              /* Adds space between the logo and the title (adjust as needed) */
+  margin-bottom: 5px;   /* Adds space below the header area */
+  flex-wrap: nowrap;     /* Ensures items stay on one line (usually default, but good to be explicit) */
+}
+
+/* Optional: Resetting h1 margin can help with alignment */
+.header-content h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Ensure image doesn't have weird spacing issues */
+.header-content img {
+  display: block; /* Prevents potential extra space below the image if treated as inline */
+}
+
+.search-form {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+#searchInput {
+  flex-grow: 1; /* Allow input to take available space */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#searchType, #searchButton {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#searchButton {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+}
+
+/* --- Layout Rearrangement Starts Here --- */
+
+.info-panels {
+  display: flex; /* Enable Flexbox */
+  gap: 20px;     /* Add space between the left and right columns */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.dynamic-info {
+  flex: 1; /* Take up 1 part of the available space */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  gap: 15px; /* Space between sections inside */
+}
+
+.search-results {
+  flex: 1.5; /* Take up 1.5 parts (make it wider than the left column) */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack h2 and results vertically */
+  /* This column will stretch vertically based on content or explicit height */
+  /* We want its content (#searchResults) to fill the space */
+  min-height: 500px; /* Give it a minimum height, adjust as needed */
+  /* Or calculate height based on viewport: calc(100vh - height_of_header_and_search - padding) */
+
+  min-width: 0; /* Allows the flex item to shrink below its content's intrinsic width */
+
+}
+
+.info-section {
+   border: 1px solid #eee;
+   padding: 15px;
+   background-color: #f9f9f9;
+   border-radius: 4px;
+   /* Removed display:flex, flex-direction: column as it's not needed here */
+}
+
+.info-section h3 {
+    margin-bottom: 10px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
-    margin-top: 20px;
-  }
-  
-  h3 {
-    color: #1a5099;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .search-form {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  #searchInput {
-    flex-grow: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-  }
-  
-  #searchType {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-left: none;
-  }
-  
-  #searchButton {
-    padding: 8px 15px;
-    background-color: #1a5099;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-  }
-  
-  #searchButton:hover {
-    background-color: #0d3b7a;
-  }
-  
-  .info-container {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .info-section {
-    flex: 1;
-    background-color: white;
-    border-radius: 4px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .json-content {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    font-family: monospace;
-    font-size: 12px;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  
-  #refreshTimer {
-    font-size: 14px;
-    color: #666;
-    font-weight: normal;
-  }
-  
-  .search-results {
-    margin-top: 20px;
-  }
-  
-  .key {
-    color: #1a5099;
-  }
-  
-  .value-string {
-    color: #008000;
-  }
-  
-  .value-number {
-    color: #0000ff;
-  }
-  
-  .value-boolean {
-    color: #b22222;
-  }
+}
+
+.json-content {
+  background-color: #fff; /* White background for content area */
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-family: monospace; /* Good for JSON */
+  white-space: pre;     /* Preserve formatting */
+  overflow-y: auto;     /* Add scrollbars when needed */
+  overflow-x: auto;     /* Add horizontal scroll if needed too */
+  word-break: break-all; /* Prevent long strings from breaking layout */
+  border-radius: 4px;
+}
+
+/* Specific height and scrolling for Global Properties */
+#globalProperties {
+  max-height: 180px; /* Adjust this value for ~10 lines based on your font/line-height */
+  /* height is handled by max-height + overflow */
+}
+
+/* Specific height and scrolling for Witness Schedule */
+#witnessSchedule {
+   max-height: 450px; /* Adjust this value for ~25 lines based on your font/line-height */
+   /* height is handled by max-height + overflow */
+}
+
+/* Make Search Results content fill available vertical space */
+.search-results > h2 {
+    margin-bottom: 10px; /* Space between title and content */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#searchResults {
+  flex-grow: 1; /* Allows this div to grow and fill vertical space in .search-results */
+  /* min-height needed to ensure it doesn't collapse completely when empty */
+  min-height: 100px;
+  /* overflow-y: auto; is already handled by .json-content */
+  /* white-space: pre; is already handled by .json-content */
+}
+
+/* --- Layout Rearrangement Ends Here --- */
+
+#refreshTimer {
+  font-size: 0.8em;
+  color: #666;
+  margin-left: 10px;
+  font-weight: normal;
+}

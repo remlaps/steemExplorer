@@ -2,13 +2,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Steem Block Explorer</title>
+  <title>Simple Steem Block Explorer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Steem Block Explorer</h1>
-    
+    <!-- Start: Modified Header Section -->
+    <div class="header-content">
+      <a href="https://github.com/remlaps/steemExplorer" target="_blank" rel="noopener noreferrer">
+        <img src="steemExplorerLogo.png" alt="Steem Explorer Logo" height="100" width="100"> 
+      </a>
+      <h1>Simple Steem Block Explorer</h1>
+    </div>
+    <!-- End: Modified Header Section -->
+
+
     <div class="search-form">
       <input type="text" id="searchInput" placeholder="Block #, Transaction ID, or Account name">
       <select id="searchType">
@@ -18,11 +26,12 @@
       </select>
       <button id="searchButton">Search</button>
     </div>
-    
+
     <div class="info-panels">
       <div class="dynamic-info">
-        <h2>Blockchain Info <span id="refreshTimer">(refreshing in 3s)</span></h2>
+        <!-- Removed h2 from here, moved inside info-container for better structure -->
         <div class="info-container">
+          <h2>Blockchain Info <span id="refreshTimer">(refreshing in 3s)</span></h2>
           <div class="info-section">
             <h3>Global Properties</h3>
             <div id="globalProperties" class="json-content"></div>
@@ -33,14 +42,14 @@
           </div>
         </div>
       </div>
-      
+
       <div class="search-results">
         <h2>Search Results</h2>
         <div id="searchResults" class="json-content"></div>
       </div>
     </div>
   </div>
-  
+
   <script src="explorer.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Steem Block Explorer Browser Extension
+# Simple Steem Block Explorer Browser Extension
 
 A simple Chrome extension that allows you to explore the Steem blockchain directly from your browser. This extension provides real-time information about the blockchain and lets you search for specific blocks, transactions, and accounts.
 
