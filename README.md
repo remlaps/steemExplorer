@@ -15,6 +15,9 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 
 ## Installation
 
+#### Chrome Store
+- [Simple Steem Block Explorer](https://chromewebstore.google.com/detail/klmfogefhmmekdbdaipnajnbhodocndg?utm_source=item-share-cb)
+
 ### Development Installation
 
 1. Clone this repository:
