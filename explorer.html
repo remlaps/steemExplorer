@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Simple Steem Block Explorer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,12 +20,14 @@
 
     <div class="search-form">
       <input type="text" id="searchInput" placeholder="Block #, Transaction ID, or Account name">
-      <select id="searchType">
-        <option value="block">Block</option>
-        <option value="transaction">Transaction</option>
-        <option value="account">Account</option>
-      </select>
       <button id="searchButton">Search</button>
+      <button id="clearButton" title="Clear search">Clear</button>
+    </div>
+
+    <div class="block-navigation" id="blockNavigation" style="display: none;">
+      <button id="prevBlock" title="Previous block">← Previous Block</button>
+      <span id="currentBlockInfo"></span>
+      <button id="nextBlock" title="Next block">Next Block →</button>
     </div>
 
     <div class="info-panels">
@@ -33,7 +36,7 @@
         <div class="info-container">
           <h2>Blockchain Info <span id="refreshTimer">(refreshing in 3s)</span></h2>
           <div class="info-section">
-            <h3>Global Properties</h3>
+            <h3>Global Properties <button id="showAllPropsBtn" class="show-all-btn" title="Show all global properties">Show All</button></h3>
             <div id="globalProperties" class="json-content"></div>
           </div>
           <div class="info-section">
@@ -47,6 +50,13 @@
         <h2>Search Results</h2>
         <div id="searchResults" class="json-content"></div>
       </div>
+    </div>
+
+    <div class="api-selector">
+      <label for="apiEndpoint">API:</label>
+      <select id="apiEndpoint"></select>
+      <button id="addEndpointBtn" title="Add custom endpoint">+</button>
+      <button id="removeEndpointBtn" title="Remove selected endpoint">−</button>
     </div>
   </div>
 

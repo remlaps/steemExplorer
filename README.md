@@ -8,9 +8,13 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 - Current witness schedule information
 - Automatic refresh every 3 seconds
 - Search functionality for:
- - Blocks by number
- - Transactions by ID
- - Accounts by name
+  - Blocks by number
+  - Transactions by ID
+  - Accounts by name
+- Quick search buttons next to Global Properties values
+- "Show All" button to view complete API response
+- Block navigation arrows for easy browsing between consecutive blocks
+- Configurable API endpoint selector with custom endpoint support
 - Formatted JSON output with syntax highlighting
 
 ## Installation
@@ -31,16 +35,23 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 
 ## Usage
 
-1. Click the extension icon in your browser toolbar to open the Steem Block Explorer in a new window
+1. Click the extension icon in your browser toolbar to open the Steem Block Explorer in a new tab
 
 2. The top section displays current blockchain information that refreshes automatically every 3 seconds
 
 3. To search for specific information:
 - Enter a block number, transaction ID, or account name in the search box
-- Select the appropriate search type from the dropdown menu
+- The extension will automatically detect the search type:
+  - **Block**: Enter a number (e.g., `12345678`)
+  - **Transaction**: Enter a 40-character hex string (e.g., `abc123...` or `0xabc123...`)
+  - **Account**: Enter an account name (e.g., `username`)
 - Click "Search" or press Enter
 
 4. Results will be displayed in the bottom section with formatted JSON
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a history of changes.
 
 ## Files
 
@@ -52,7 +63,14 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 
 ## API Endpoints
 
-The extension uses the Steem API endpoint at `https://api.steemit.com` and the following methods:
+The extension includes a configurable API endpoint selector with several default endpoints:
+- `https://api.steemit.com`
+- `https://api.moecki.online`
+- `https://api.steemitdev.com`
+
+You can also add custom endpoints using the "+" button in the API selector. Custom endpoints are saved permanently in your browser's localStorage.
+
+The extension uses the following Steem API methods:
 
 - `condenser_api.get_dynamic_global_properties`
 - `condenser_api.get_witness_schedule`
