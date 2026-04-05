@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3] - 2026-04-05
+
+### Added
+- Post search functionality using `@author/permlink` format
+  - Search for specific posts by entering `@username/post-permlink` in the search bar
+  - Uses `condenser_api.get_content` to fetch post data
+
 ## [1.2] - 2026-04-05
 
 ### Added

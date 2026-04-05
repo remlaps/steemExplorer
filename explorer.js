@@ -180,6 +180,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Auto-detect search type based on input value
     function detectSearchType(query) {
+      // If it matches @account/perm_link format, it's a post search
+      if (/^@[a-zA-Z][a-zA-Z0-9.-]+\/[a-zA-Z0-9-]+(-[a-zA-Z0-9-]+)*$/.test(query) || /^@[a-zA-Z][a-zA-Z0-9.-]+\/.+$/.test(query)) {
+        return 'post';
+      }
+
       // If it's a pure number, it's likely a block number
       if (/^\d+$/.test(query)) {
         return 'block';
@@ -278,6 +283,40 @@ document.addEventListener('DOMContentLoaded', function() {
               searchResults.textContent = `Transaction not found: ${data.error.message || 'Unknown error'}`;
             } else {
               searchResults.textContent = 'Transaction not found';
+            }
+            break;
+            
+          case 'post':
+            // Parse @author/permlink format
+            const postMatch = query.match(/^@([^\/]+)\/(.+)$/);
+            if (!postMatch) {
+              searchResults.textContent = 'Invalid post format. Use @author/permlink';
+              return;
+            }
+            const author = postMatch[1];
+            const permlink = postMatch[2];
+            
+            response = await fetch(apiUrl, {
+              method: 'POST',
+              body: JSON.stringify({
+                jsonrpc: '2.0',
+                method: 'condenser_api.get_content',
+                params: [author, permlink],
+                id: 1
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            });
+            
+            data = await response.json();
+            if (data.result && data.result.id) {
+              // A valid post should have an id
+              searchResults.innerHTML = formatJSON(data.result);
+            } else if (data.error) {
+              searchResults.textContent = `Post not found: ${data.error.message || 'Unknown error'}`;
+            } else {
+              searchResults.textContent = 'Post not found';
             }
             break;
             

@@ -11,6 +11,7 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
   - Blocks by number
   - Transactions by ID
   - Accounts by name
+  - Posts by `@author/permlink`
 - Quick search buttons next to Global Properties values
 - "Show All" button to view complete API response
 - Block navigation arrows for easy browsing between consecutive blocks
@@ -40,11 +41,12 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 2. The top section displays current blockchain information that refreshes automatically every 3 seconds
 
 3. To search for specific information:
-- Enter a block number, transaction ID, or account name in the search box
+- Enter a block number, transaction ID, account name, or post reference in the search box
 - The extension will automatically detect the search type:
   - **Block**: Enter a number (e.g., `12345678`)
   - **Transaction**: Enter a 40-character hex string (e.g., `abc123...` or `0xabc123...`)
   - **Account**: Enter an account name (e.g., `username`)
+  - **Post**: Enter `@author/permlink` (e.g., `@username/my-post-title`)
 - Click "Search" or press Enter
 
 4. Results will be displayed in the bottom section with formatted JSON
@@ -77,6 +79,7 @@ The extension uses the following Steem API methods:
 - `condenser_api.get_block`
 - `condenser_api.get_transaction`
 - `condenser_api.get_accounts`
+- `condenser_api.get_content` (for post searches)
 
 ## Contributing
 
