@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load and initialize endpoints
     let endpoints = loadEndpoints();
-    let currentApiUrl = endpoints[0] || 'https://api.steem.house';
+    let currentApiUrl = endpoints[0] || 'https://api.steemit.com';
     
     // DOM elements
     const searchInput = document.getElementById('searchInput');
