@@ -2,6 +2,8 @@
 
 A simple Chrome extension that allows you to explore the Steem blockchain directly from your browser. This extension provides real-time information about the blockchain and lets you search for specific blocks, transactions, and accounts.
 
+![Steem Explorer Screenshot](steemExplorerScreenCapture.png)
+
 ## Features
 
 - Real-time display of blockchain global properties
@@ -22,17 +24,12 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 
 ### Development Installation
 
-1. Clone this repository:
-
-```https://github.com/remlaps/steemExplorer.git```
-
+1. Clone this repository:  
+   `git clone https://github.com/remlaps/steemExplorer.git`
 2. Open Chrome and navigate to `chrome://extensions/`
-
-3. Enable "Developer mode" using the toggle in the top-right corner
-
-4. Click "Load unpacked" and select the extension folder
-
-5. The extension should now appear in your browser toolbar
+3. Enable **"Developer mode"** using the toggle in the top-right corner.
+4. Click **"Load unpacked"** and select the extension folder.
+5. The extension should now appear in your browser toolbar.
 
 ## Usage
 
@@ -44,9 +41,9 @@ A simple Chrome extension that allows you to explore the Steem blockchain direct
 - Enter a block number, transaction ID, account name, or post reference in the search box
 - The extension will automatically detect the search type:
   - **Block**: Enter a number (e.g., `12345678`)
-  - **Transaction**: Enter a 40-character hex string (e.g., `abc123...` or `0xabc123...`)
-  - **Account**: Enter an account name (e.g., `username`)
-  - **Post**: Enter `@author/permlink` (e.g., `@username/my-post-title`)
+  - **Transaction**: Enter a 40-character hex string (e.g., `fcb28b1713467774f40d190e4c580d2b9bd6d100`)
+  - **Account**: Enter an account name (e.g., `steemit`)
+  - **Post**: Enter `@author/permlink` (e.g., `@remlaps/my-projects`)
 - Click "Search" or press Enter
 
 4. Results will be displayed in the bottom section with formatted JSON
@@ -62,6 +59,8 @@ See [CHANGELOG.md](CHANGELOG.md) for a history of changes.
 - **explorer.html**: Main HTML interface
 - **explorer.js**: JavaScript code for API queries and UI interactions
 - **styles.css**: Styling for the explorer interface
+- **steemExplorerLogo.png**: Extension icon
+- **steemExplorerScreenCapture.png**: Extension screenshot
 
 ## API Endpoints
 

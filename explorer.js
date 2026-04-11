@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (let i = 0; i < keys.length; i++) {
           const key = keys[i];
-          result += `${indentStr}  <span class="key">"${key}"</span>: ${formatJSONValue(value[key], indent + 1)}`;
+          result += `${indentStr}  <span class="key">"${escapeHTML(key)}"</span>: ${formatJSONValue(value[key], indent + 1)}`;
           
           if (i < keys.length - 1) {
             result += ',';

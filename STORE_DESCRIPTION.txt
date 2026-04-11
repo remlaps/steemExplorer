@@ -1,0 +1,5 @@
+A fast, read-only Steem blockchain explorer. No accounts or keys needed. 
+Track global properties and witness schedules with 3s auto-refresh. 
+Includes auto-detect search (Blocks, Accounts, Tx IDs, Posts), 
+block navigation, and custom API endpoint management. 
+Ideal for quick on-chain lookups.
