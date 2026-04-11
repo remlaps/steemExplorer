@@ -1,0 +1,41 @@
+TESTING INSTRUCTIONS
+
+OVERVIEW:
+The Simple Steem Block Explorer is a read-only tool for viewing public data on the Steem blockchain. It does not require user accounts, private keys, or authentication.
+
+TESTING STEPS:
+
+1. INITIALIZATION
+- Click the extension icon in the toolbar. It will open the explorer in a new browser tab.
+- Observe the "Global Properties" and "Witness Schedule" sections. They should populate automatically and refresh every 3 seconds (see timer).
+
+2. SEARCH FUNCTIONALITY (AUTO-DETECTION)
+Please test the following inputs in the search bar:
+- Block Search: Enter a number (e.g., 1) and press Enter.
+- Account Search: Enter a known account name (e.g., steemit) and click Search.
+- Post Search: Enter a post reference in the format @author/permlink (e.g., @remlaps/my-projects).
+- Transaction Search: Enter a 40-character hex string (e.g. fcb28b1713467774f40d190e4c580d2b9bd6d100)
+
+3. NAVIGATION & UI
+- After searching for a block, use the "Previous Block" and "Next Block" buttons to navigate.
+- Click the "search" button next to the "Head Block" value in Global Properties.
+- Click the "Show All" button in the Global Properties header to view the full raw API response.
+
+4. API ENDPOINT MANAGEMENT
+- Switch between providers in the "API" dropdown at the bottom.
+- Click (+) to add a custom endpoint (Test URL: https://api.steemitdev.com).
+- Select the custom endpoint and click (-) to remove it.
+
+TECHNICAL DETAILS:
+- Permissions: No special permissions required.
+- Network: Makes POST requests to public Steem JSON-RPC nodes.
+- Storage: Uses localStorage for custom API endpoint lists.
+
+SAMPLE DATA FOR TESTING:
+- Account: steemit
+- Block: 1
+- Post: @remlaps/my-projects
+- Transaction: fcb28b1713467774f40d190e4c580d2b9bd6d100
+
+CONDENSED TESTING INSTRUCTIONS FOR CHROME STORE
+Read-only. No login. 1. Open extension, verify 'Global Properties' auto-refreshes (3s). 2. Search test: '1' (Block), 'steemit' (Account), '@remlaps/my-projects' (Post), 'fcb28b1713467774f40d190e4c580d2b9bd6d100' (TX). 3. Use arrows for block navigation. 4. In API selector, click (+) to add 'https://api.pennsif.net', then (-) to remove. 5. Click 'Show All' in Global Properties to see raw JSON. Uses public JSON-RPC nodes and localStorage for settings.

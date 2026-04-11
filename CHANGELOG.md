@@ -2,10 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.2] - 2026-04-11
+
+### Changed
+- Updated default fallback API endpoint to `api.steemit.com`
+- Enhanced security by escaping HTML in JSON keys within search results to prevent potential XSS
+
+### Fixed
+- Synchronized examples in README.md with testing instructions
+
 ## [1.3.1] - 2026-04-11
 
 ### Changed
 - Updated extension screenshot
+ - Renamed screenshot to lowercase .png for Linux compatibility
 
 ## [1.3] - 2026-04-05
 
